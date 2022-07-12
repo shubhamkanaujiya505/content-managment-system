@@ -58,7 +58,16 @@
     <script>
                 function myfun(data)
                 {
-                    alert(data);
+                    // alert(data);
+                    var req = new XMLHttpRequest();
+                    req.open("GET","http://localhost/content-managment-system/resopnse.php?datavalue="+data,true);
+                    req.send();
+
+                    req.onreadystatechange=function(){
+                        if(req.readyState==4 && req.status == 200){
+                            document.getElementById('city').innerHTML = req.responseText;
+                        }
+                    }
 
                 }
 
