@@ -17,8 +17,25 @@
         <h2>The XMLHttpRequest Object</h2>
         <button type="button" onclick="localDoc()" > Change Content</button>
     </div>
+<script>
+    function localDoc() {
 
+     // Create an XMLHttpRequest object
+    const xhttp = new XMLHttpRequest();
+
+    // Define a callback function
+    xhttp.onload = function(){
+        
+         // Here you can use the Data
+        document.getElementById("demo").innerHTML = this.responseText;
+    }
+
+    // Send a request
+    xhttp.open("GET","ajax_info.text");
+    xhttp.send();
+}
+</script>
     <!-- add script file -->
-    <script src="ajaxjs.js"></script>
+    <!-- <script src="ajaxjs.js"></script> -->
 </body>
 </html>
